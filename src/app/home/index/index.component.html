@@ -1,0 +1,18 @@
+<clr-main-container>
+  <clr-header>
+    <div class="branding">
+      <a href="javascript:void(0)" class="nav-link nav-text">
+        <img src="../../../assets/bell-icon.png">
+        <span class="title pl-1">MyFocus</span>
+      </a>
+    </div>
+    <div class="header-nav" [clr-nav-level]="1">
+      <a (click)="openSettings()" class="nav-link nav-text">Settings</a>
+    </div>
+  </clr-header>
+  <div class="content-container">
+    <main class="content-area">
+      <app-timer [(timer)]="timer"></app-timer>
+    </main>
+  </div>
+</clr-main-container>

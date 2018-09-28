@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+    <div class="card-text quotes text-center">
+      if you didn't get success then just change the way you are doing.
+    </div>
+
+    <div class="card">
+      <div class="card-header p-0">
+        <div class="clr-row m-0">
+          <button (click)="actionPromodoro(_timer.promodoro)"
+                  class="btn btn-secondary clr-col m-0 action-button">Focus
+          </button>
+          <button (click)="actionPromodoro(_timer.long)"
+                  class="btn btn-secondary clr-col m-0 action-button br-0 bl-0">LONG BREAK
+          </button>
+          <button (click)="actionPromodoro(_timer.short)"
+                  class="btn btn-secondary clr-col m-0 action-button">SHORT BREAK
+          </button>
+        </div>
+      </div>
+      <div class="card-block">
+        <div class="card-title text-center timer-ticks">
+          {{m<10?'0':''}} {{m}} : {{s<10?'0':''}} {{s}}
+        </div>
+      </div>
+      <div class="card-footer p-0">
+        <div class="clr-row m-0">
+          <button (click)="start()" class="btn btn-primary clr-col m-0 action-button">START</button>
+          <button (click)="stop()" class="btn btn-danger clr-col m-0 action-button">STOP</button>
+          <button (click)="reset()" class="btn btn-success clr-col m-0 action-button">RESET</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
