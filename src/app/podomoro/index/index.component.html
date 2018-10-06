@@ -1,0 +1,10 @@
+<div class="content-container bg-white">
+  <nav class="sidenav" [clr-nav-level]="2">
+    <app-list-task [taskList]="taskList" (getAction)="getAction($event)"></app-list-task>
+  </nav>
+  <div class="content-area">
+    <div [class.hidden]="!showTimer">
+      <app-timer (updateTimer)="set($event)" [timer]="timer"></app-timer>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.nav-list .nav-item {
+  padding: 5px;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.nav-item .clr-row {
+  cursor: pointer;
+}
+.nav-item .clr-row clr-icon{
+  padding-right: 5px;
+}
+.nav-item .clr-row:hover, .nav-list .nav-link:hover {
+  background-color: rgba(0, 140, 186, 0.3);
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgxElectronModule } from 'ngx-electron';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
@@ -16,7 +16,8 @@ import {HomeModule} from './home/home.module';
     AppRoutingModule,
     ClarityModule,
     HomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxElectronModule
   ],
   providers: [],
   bootstrap: [AppComponent]

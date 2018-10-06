@@ -1,6 +1,6 @@
 import {ApplicationRef, ComponentFactoryResolver, ComponentRef, EmbeddedViewRef, Injectable, Injector} from '@angular/core';
 import {SettingsComponent} from '../settings/settings.component';
-import {ModalConfig} from '../models/modal.interface';
+import {ModalConfig} from '../models/';
 
 @Injectable()
 export class ModalService {

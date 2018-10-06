@@ -1,0 +1,33 @@
+<div class="timer">
+  <!--if you didn't get success then just change the way you are doing.-->
+  <div class="card">
+    <div class="card-header p-0">
+      <h2 class="title text-center m-0 text-uppercase text-info font-weight-bold text-danger">{{status}}</h2>
+    </div>
+    <div class="card-block">
+      <div class="card-title text-center timer-ticks text-danger">
+        {{m<10?'0':''}}{{m}}:{{s<10?'0':''}}{{s}}
+      </div>
+    </div>
+    <div class="card-footer p-0">
+      <div class="clr-row m-0">
+        <button [class.hidden]="startTimer" (click)="start();this.focus.play();"
+                class="btn btn-primary clr-col m-0 action-button">
+          start
+        </button>
+        <button (click)="pause()" class="btn btn-danger clr-col m-0 action-button">
+          {{pauseInterval?'resume':'pause'}}
+        </button>
+        <button [class.hidden]="_timer.status" (click)="done()"
+                class="btn btn-success clr-col m-0 action-button">
+          done
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-block">
+      {{_timer.description}}
+    </div>
+  </div>
+</div>

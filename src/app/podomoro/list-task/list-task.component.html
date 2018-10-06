@@ -1,0 +1,74 @@
+<section class="sidenav-content">
+  <section class="nav-group">
+    <ul class="nav-list">
+<!--
+      <li class="nav-item">
+        <div class="clr-row">
+          <div class="col-sm" (click)="getAction.emit('timer')">
+            Pomodoro
+          </div>
+        </div>
+      </li>
+-->
+      <li class="nav-item">
+        <div class="clr-row">
+          <div class="col-sm" (click)="getAction.emit('newtask')">
+            New Task
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <!-- Task to be do -->
+  <section class="nav-group collapsible">
+    <input id="todolist" type="checkbox">
+    <label for="todolist">Today Task List</label>
+    <ul class="nav-list">
+      <ng-template
+        ngFor
+        let-task
+        [ngForOf]="_taskList"
+        let-i="index"
+        [ngForTrackBy]="trackById"
+      >
+        <li class="nav-item" [class.hidden]="task.status">
+          <div class="clr-row">
+            <div class="col-sm" (click)="getAction.emit(i)">
+              {{task.title}}
+            </div>
+            <div class="col-sm-2 p-0">
+              <clr-icon class="m-0 is-solid" size="25" (click)="getAction.emit('edit|'+i)"
+                        shape="pencil"></clr-icon>
+            </div>
+          </div>
+        </li>
+      </ng-template>
+    </ul>
+  </section>
+  <!-- Completed task list -->
+  <section class="nav-group collapsible">
+    <input id="donetask" type="checkbox">
+    <label for="donetask">Completed</label>
+    <ul class="nav-list">
+      <ng-template
+        ngFor
+        let-task
+        [ngForOf]="_taskList"
+        let-i="index"
+        [ngForTrackBy]="trackById"
+      >
+        <li class="nav-item" [class.hidden]="!task.status">
+          <div class="clr-row">
+            <div class="col-sm" (click)="getAction.emit(i)">
+              {{task.title}}
+            </div>
+            <div class="col-sm-2 p-0">
+              <clr-icon class="m-0 is-solid" size="25" (click)="getAction.emit('delete|'+task.title)"
+                        shape="trash"></clr-icon>
+            </div>
+          </div>
+        </li>
+      </ng-template>
+    </ul>
+  </section>
+</section>

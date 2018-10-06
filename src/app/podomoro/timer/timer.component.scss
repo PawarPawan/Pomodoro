@@ -1,0 +1,37 @@
+pre {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  overflow: scroll;
+}
+
+.action-button {
+  border-radius: 0;
+}
+
+.timer-ticks {
+  letter-spacing: 3vw;
+  font-family: 'Monoton', cursive;
+  font-size: 13vw;
+  line-height: 10vw;
+  padding-bottom: 3vw;
+}
+
+.quotes {
+  font-family: 'Yeseva One', cursive;
+  font-size: 1rem;
+}
+
+.btn-outline {
+  border: 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.br-0 {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.bl-0 {
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}

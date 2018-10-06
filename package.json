@@ -1,13 +1,46 @@
 {
-  "name": "my-focus",
-  "version": "0.0.0",
+  "name": "MyFocus",
+  "version": "0.0.1",
+  "productName": "My Focus",
+  "main": "electron.js",
+  "description": "Best for achiving small goals.",
+  "build": {
+    "asar": true,
+    "appId": "com.terzettoinfotech.myfocus",
+    "directories": {
+      "output": "release-builds",
+      "buildResources": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "default"
+    },
+    "win": {
+      "target": [
+        "portable",
+        "msi"
+      ]
+    },
+    "linux": {
+      "category": "Office",
+      "icon": "build/icon.png",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "electron": "DEBUG_PROD=true npm run build && electron .",
+    "start": "ng serve --port 3333",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "linux": "electron-packager . MyFocus --overwrite --asar=true --platform=linux --arch=x64 --icon=dist/assets/bell-icon.png --prune=true --out=release-builds",
+    "linux-installer": "electron-installer-debian --src release-builds/MyFocus-linux-x64/ --arch amd64 --config debian.json",
+    "package-linux": "ng build && electron-packager . MyFocus --overwrite --asar=true --platform=linux --arch=x64 --icon=dist/assets/bell-icon.png --prune=true --out=release-builds"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +57,7 @@
     "@clr/icons": "^0.13.3",
     "@clr/ui": "^0.13.3",
     "@webcomponents/custom-elements": "^1.0.0",
+    "angular-svg-round-progressbar": "^2.0.0",
     "core-js": "^2.5.4",
     "ng-snotify": "^4.3.1",
     "rxjs": "^6.0.0",
@@ -38,6 +72,10 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "electron": "^3.0.2",
+    "electron-installer-debian": "^0.8.1",
+    "electron-packager": "^12.2.0",
+    "electron-prebuilt": "^1.4.13",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
@@ -45,9 +83,14 @@
     "karma-coverage-istanbul-reporter": "~2.0.0",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ngx-electron": "^1.0.4",
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2"
-  }
+  },
+  "files": [
+    "**/assets/*",
+    "!.idea${/*}"
+  ]
 }

@@ -1,0 +1,54 @@
+<div class="modal show" id="modalname" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          New Task
+          <div class="close float-md-right" data-dismiss="modal" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </div>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-group">
+          <div class="clr-row pb-1">
+            <label class="clr-col-4">Task title</label>
+            <input class="clr-col" placeholder="Task title" name="title"
+                   type="text" [(ngModel)]="timer.title"/>
+          </div>
+          <div class="clr-row pb-1">
+            <label class="clr-col-4">Description</label>
+            <textarea class="clr-l-6" placeholder="Task description"
+                      name="description" [(ngModel)]="timer.description"></textarea>
+          </div>
+          <div class="clr-row pb-1">
+            <div class="clr-col-6">
+              <label>Total Time (in hrs)</label>
+              <input placeholder="Pomodoro Time" name="pomodoro" type="number"
+                     (change)="updatePomodoro()" [(ngModel)]="timer.totaltime"/>
+            </div>
+            <div class="clr-col-6">
+              <label>Priority (10-1, 10 = high priority)</label>
+              <input placeholder="Task Priority" name="priority" type="number" [(ngModel)]="timer.priority"/>
+            </div>
+          </div>
+          <div class="clr-row">
+            <div class="clr-col-6">
+              <label>Pomodoro cycles (1 = 25min)</label>
+              <input placeholder="Pomodoro cycles" name="long" type="number" [(ngModel)]="timer.pomodoro"/>
+            </div>
+            <div class="clr-col-6">
+              <label>Short Break Time (in minutes)</label>
+              <input placeholder="Short Break Time" name="short" type="number"
+                     [(ngModel)]="timer.short"/>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onConfirm()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop show"></div>

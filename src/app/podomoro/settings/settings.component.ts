@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, HostListener, Output} from '@angular/core';
-import {ModalConfig, Timer} from '../models/modal.interface';
+import {emptyTimer, ModalConfig, Timer} from '../models/modal.interface';
 
 @Component({
   selector: 'app-modal',
@@ -15,11 +15,7 @@ export class SettingsComponent {
   confirm: any;
 
   constructor() {
-    this.timer = {
-      promodoro: 25,
-      long: 10,
-      short: 5
-    };
+    this.timer = emptyTimer;
   }
 
   @HostListener('click', ['$event'])
@@ -39,6 +35,9 @@ export class SettingsComponent {
   setConfirm(param: ModalConfig) {
     if (confirm) {
       this.confirm = param.confirm;
+      if (param.timer) {
+        this.timer = param.timer;
+      }
     }
   }
 
@@ -48,7 +47,13 @@ export class SettingsComponent {
 
   onConfirm() {
     this.close();
+    this.timer.datetime = new Date().getTime();
+    this.timer.status = false;
+    this.timer.delete = false;
     this.confirm.updateTimer(this.timer);
   }
 
+  updatePomodoro() {
+    this.timer.pomodoro = this.timer.totaltime * 2;
+  }
 }
